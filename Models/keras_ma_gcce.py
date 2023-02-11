@@ -40,8 +40,15 @@ class Keras_MA_GCCE():
         self.neurons = neurons
         self.loss = loss
     
+    def scheduler1(step = 10, ratio = 1.2):
+      def scheduler(epoch, lr):
+        if epoch % step == 0 and epoch>1:
+          return lr/ratio
+        else:
+          return lr
+      return scheduler
 
-    
+
  
     def GCE_MA_loss(self, y_true, y_pred):
         # print(y_true,y_pred)
@@ -166,7 +173,7 @@ class Keras_MA_GCCE():
         self.model.compile(loss=sel_loss, optimizer=opt)
 
         callback1 = tf.keras.callbacks.TerminateOnNaN()
-        callback2 = tf.keras.callbacks.LearningRateScheduler(scheduler1(ratio = 1))
+        callback2 = tf.keras.callbacks.LearningRateScheduler(self.scheduler1(ratio = 1))
         #callback2 = tf.keras.callbacks.LearningRateScheduler(scheduler2)
         callback3 = tf.keras.callbacks.EarlyStopping(monitor="loss", min_delta=1e-2,
                                                  patience=15, verbose=0, mode="auto",
