@@ -19,6 +19,8 @@ tf.keras.backend.clear_session()
 #tf.random.set_seed(42)
 import types
 import tempfile
+import pandas as pd
+
 class Keras_MA_GCCE():  
  #Constructor __init__. Special method: identified by a double underscore at either side of their name
  #work in the background
