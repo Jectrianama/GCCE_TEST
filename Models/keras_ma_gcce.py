@@ -147,7 +147,7 @@ class Keras_MA_GCCE():
         input_l_b = tf.keras.layers.BatchNormalization()(input_l)        
         input_l_do = tf.keras.layers.Dropout(rate=self.dropout)(input_l_b)    
         #capas densas
-        h1 = tf.keras.layers.Dense(int(P*neurons*(self.K+self.R)),activation='selu',name='h1', bias_initializer='zeros', kernel_initializer=initializer,
+        h1 = tf.keras.layers.Dense(int(P*self.neurons*(self.K+self.R)),activation='selu',name='h1', bias_initializer='zeros', kernel_initializer=initializer,
                               kernel_regularizer=tf.keras.regularizers.l1_l2(l1=self.l1_param,l2=self.l2_param))(input_l_do)#argumento de entrada
        # h1 = tf.keras.layers.BatchNormalization()(h1)        
         h1 = tf.keras.layers.AlphaDropout(rate=self.dropout)(h1)      
