@@ -143,7 +143,7 @@ class Keras_MA_GCCE():
           sel_loss = self.GCE_MA_loss
         
         #capa de entrada
-        input_l = tf.keras.layers.Input(shape=(X_train.shape[1]), name='entrada')
+        input_l = tf.keras.layers.Input(shape=(X.shape[1]), name='entrada')
         input_l_b = tf.keras.layers.BatchNormalization()(input_l)        
         input_l_do = tf.keras.layers.Dropout(rate=self.dropout)(input_l_b)    
         #capas densas
