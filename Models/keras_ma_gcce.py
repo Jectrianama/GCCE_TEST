@@ -139,7 +139,7 @@ class Keras_MA_GCCE():
 
         if self.loss == "RCDNN":
           sel_loss = self.custom_RCDNN_loss
-        elif  sef.loss == "GCE":
+        elif  self.loss == "GCE":
           sel_loss = self.GCE_MA_loss
         
         #capa de entrada
