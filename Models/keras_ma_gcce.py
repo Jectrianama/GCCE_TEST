@@ -137,7 +137,7 @@ class Keras_MA_GCCE():
             opt=self.optimizer
 
 
-        if sef.loss == "RCDNN":
+        if self.loss == "RCDNN":
           sel_loss = self.custom_RCDNN_loss
         elif  sef.loss == "GCE":
           sel_loss = self.GCE_MA_loss
